@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "jsx": "react",
+        "rootDir": "./mihux",
+        "declaration": true,
+        "declarationDir": "./dist",
+        "allowJs": true,
+        "removeComments": true,
+        "noEmit": true,
+        "pretty": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true
+    },
+    "include": [
+        "./mihux/**/*"
+    ],
+    "exclude": [
+        "./dist/**/*"
+    ]
+}
