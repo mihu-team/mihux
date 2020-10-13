@@ -143,7 +143,7 @@ const ChildClassToFunc = useComponent(ChildClass)
 
 ```
 
-###### 借助 `useComponent` 可以在 `class component` 中使用所有 `hooks` 的 api，但抛弃了除 `componentWillMount` 和 `componentDidMount` 之外的 钩子函数
+借助 `useComponent` 可以在 `class component` 中使用所有 `hooks` 的 api，但抛弃了除 `componentWillMount` 和 `componentDidMount` 之外的 钩子函数
 
 ---
 
@@ -161,5 +161,10 @@ github: [https://github.com/lugia-ysstech/lugia](https://github.com/lugia-ysstec
 
 熟悉上述两款react状态管理器，将有助于了解 Mihux
 
-### Mihux 包
+### 安装 Mihux
+
 package：[https://www.npmjs.com/package/mihux](https://www.npmjs.com/package/mihux)
+
+```
+ $ npm i mihux -S
+```
