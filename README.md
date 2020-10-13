@@ -27,6 +27,14 @@ src
  │        └─ index.tsx - 页面入口 
 ```
 
+### 安装 Mihux
+
+package：[https://www.npmjs.com/package/mihux](https://www.npmjs.com/package/mihux)
+
+```
+ $ npm i mihux -S
+```
+
 ### 快速上手
 
 - dvc/dataOv
@@ -160,11 +168,3 @@ home: [http://lugia.tech/#/component/lugiax](http://lugia.tech/#/component/lugia
 github: [https://github.com/lugia-ysstech/lugia](https://github.com/lugia-ysstech/lugia)
 
 熟悉上述两款react状态管理器，将有助于了解 Mihux
-
-### 安装 Mihux
-
-package：[https://www.npmjs.com/package/mihux](https://www.npmjs.com/package/mihux)
-
-```
- $ npm i mihux -S
-```
