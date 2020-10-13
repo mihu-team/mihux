@@ -9,7 +9,7 @@ Mihux 是一款 基于 react-hooks-redux 封装的react状态管理器，力求�
 - Mihux 采用集中注册，集中输出的方式管理数据
 - Mihux 模拟双向数据绑定，并采用 inmutable 对数据进行 map 化处理，防污染
 
-* * *
+___
 
 ### 目录结构
 
