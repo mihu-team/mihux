@@ -156,7 +156,7 @@ package: [https://developer.aliyun.com/mirror/npm/package/react-hooks-redux](htt
 
 - 用法借鉴：Lugiax：
 
-home: [http://lugia.tech/#/component/lugiax](http://lugia.tech/#/component/lugiax)
-github: [https://github.com/lugia-ysstech/lugia](https://github.com/lugia-ysstech/lugia)
+###### home: [http://lugia.tech/#/component/lugiax](http://lugia.tech/#/component/lugiax)
+###### github: [https://github.com/lugia-ysstech/lugia](https://github.com/lugia-ysstech/lugia)
 
 熟悉上述两款react状态管理器，将有助于了解 Mihux
