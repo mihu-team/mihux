@@ -2,22 +2,20 @@ import React, { Fragment, useContext, useEffect, useMemo, useState } from 'react
 import createStore from 'react-hooks-redux'
 import { Map, fromJS } from 'immutable'
 
-type anyObject = Record<string | number | symbol, any>
-
 interface registerType {
   state: object
   sync?: object
   async?: object
 }
+interface MapOrObjType {
+  [key: string]: any
+}
 
 interface doReducerType {
   type: string
-  reducer: (state: anyObject) => anyObject
+  reducer: (state: MapOrObjType) => MapOrObjType
 }
 
-interface MapType {
-  [key: string]: any
-}
 
 const Context: React.Context<any> = React.createContext({})
 
@@ -51,27 +49,27 @@ const useComponent: (Component: new (props: any) => any) => any = (Component) =>
 }
 
 class Mihux {
-  private state: anyObject = {}
-  private returnMap: anyObject = {}
-  private store: anyObject = {}
-  private mutation: anyObject = {}
-  private mapState: any = {}
-  private set: (key: string, value: any) => MapType = (key, value) => {
-    let newState: anyObject = Object.assign({}, this.store.getState())
-    let mapState: any = Map({ ...newState })
+  private state: MapOrObjType = {}
+  private returnMap: MapOrObjType = {}
+  private store: MapOrObjType = {}
+  private mutation: MapOrObjType = {}
+  private mapState: MapOrObjType = {}
+  private set: (key: string, value: any) => MapOrObjType = (key, value) => {
+    let newState: MapOrObjType = Object.assign({}, this.store.getState())
+    let mapState: MapOrObjType = Map({ ...newState })
     return mapState.set(key, value)
   }
-  private setIn: (keys: string[], value: any) => MapType = (keys, value) => {
-    let newState: anyObject = Object.assign({}, this.store.getState())
-    let mapState: any = Map({ ...newState })
+  private setIn: (keys: string[], value: any) => MapOrObjType = (keys, value) => {
+    let newState: MapOrObjType = Object.assign({}, this.store.getState())
+    let mapState: MapOrObjType = Map({ ...newState })
     return mapState.setIn(keys, value)
   }
-  private merge: (newSatet: anyObject) => MapType = (values) => {
-    let newState: anyObject = Object.assign({}, this.store.getState())
-    let mapState: MapType = Map({ ...newState })
+  private merge: (newSatet: MapOrObjType) => MapOrObjType = (values) => {
+    let newState: MapOrObjType = Object.assign({}, this.store.getState())
+    let mapState: MapOrObjType = Map({ ...newState })
     return mapState.merge({ ...values })
   }
-  private getValue: (state: MapType, key: string) => any = (state, key) => {
+  private getValue: (state: MapOrObjType, key: string) => any = (state, key) => {
     let values: any = state.get(key)
     try {
       return values.toJS()
@@ -79,58 +77,44 @@ class Mihux {
       return values
     }
   }
-  private mapMutation: (fns: anyObject, model: string, flag?: string) => void = (fns, model, flag) => {
+  private mapMutation: (fns: MapOrObjType, model: string, flag?: string) => void = (fns, model, flag) => {
+    const me: this = this
+    const createReducer: (key: string, mapNewState: MapOrObjType) => void = (key, mapNewState) => {
+      const doReducer: () => doReducerType = () => {
+        return {
+          type: key,
+          reducer(state: MapOrObjType) {
+            let mapState: any = fromJS(state)
+            me.returnMap = mapState?.merge(mapNewState)
+            return me.returnMap.toJS()
+          },
+        }
+      }
+      this.store.dispatch(doReducer())
+    }
+    let builtIn: MapOrObjType = {
+      mutation: this.mutation[model],
+      setState: this.set,
+      setInState: this.setIn,
+      mergeState: this.merge,
+      getValue: this.getValue
+    }
     Object.keys(fns).forEach((key) => {
       switch (flag) {
         case 'async':
-          let toUpperCaseKey: string = 'async' + key.replace(key[0], key[0].toUpperCase())
-          return (this.mutation[model][toUpperCaseKey] = async (values: any) => {
-            let mapNewState: MapType = await fns[key](this.returnMap, values, {
-              mutation: this.mutation[model],
-              setState: this.set,
-              setInState: this.setIn,
-              mergeState: this.merge,
-              getValue: this.getValue
-            })
-            const me: this = this
-            const doReducer: () => doReducerType = () => {
-              return {
-                type: toUpperCaseKey,
-                reducer(state: anyObject) {
-                  let mapState: any = fromJS(state)
-                  me.returnMap = mapState?.merge(mapNewState)
-                  return me.returnMap.toJS()
-                },
-              }
-            }
-            this.store.dispatch(doReducer())
+          let toUpperCaseKey: string = 'async' + key.replace(key[0], key[0].toUpperCase());
+          (this.mutation[model][toUpperCaseKey] = async (values: any) => {
+            createReducer(toUpperCaseKey, await fns[key](this.returnMap, values, builtIn))
           })
+          break;
         default:
-          return (this.mutation[model][key] = (values: any) => {
-            let mapNewState: MapType = fns[key](this.returnMap, values, {
-              mutation: this.mutation[model],
-              setState: this.set,
-              setInState: this.setIn,
-              mergeState: this.merge,
-            })
-            const me: this = this
-
-            const doReducer: () => doReducerType = () => {
-              return {
-                type: key,
-                reducer(state) {
-                  let mapState: any = fromJS(state)
-                  me.returnMap = mapState?.merge(mapNewState)
-                  return me.returnMap.toJS()
-                },
-              }
-            }
-            this.store.dispatch(doReducer())
+          (this.mutation[model][key] = (values: any) => {
+            createReducer(key, fns[key](this.returnMap, values, builtIn))
           })
       }
     })
   }
-  private init: () => { store: anyObject; Provider: any } = () => {
+  private init: () => { store: MapOrObjType; Provider: any } = () => {
     const { Provider, store } = createStore({ initialState: { ...this.state } })
     this.store = store
     this.mapState = Map({ ...this.state })
@@ -147,7 +131,7 @@ class Mihux {
   }
   public Provider: React.FC<any> = (props: any) => {
     const { store, Provider } = this.init()
-    const newProps: { store: anyObject } = { store }
+    const newProps: { store: MapOrObjType } = { store }
     const ProviderChildren: React.FC<any> = props => {
       const { store } = useContext(Context)
       const { children } = props
