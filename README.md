@@ -69,15 +69,15 @@ export const sync = {
     }
 }
 ```
-###### `state` - map 格式的数据实例
-###### `values` - 接收任意格式的入参
-###### `getValue` - 执行 `state.get(name)` 得到 `map` 则 return `toJS` 后的结果 ,否则 直接 return
-###### `setState` - return 一个 map 用法同 mapDatas.set
-###### `setInState` - return 一个 map 用法同 mapDatas.setIn
-###### `mergeState` - return 一个 map 用法同 mapDatas.merge
-###### `mutation` - 包含自定义的同步方法集和异步方法集
-###### 异步方法以 `async` 开头，原方法首字母大写
-###### 以上述代码为例，`async toDoStr`  调用时为 `mutation.asyncToDoStr()`
+`state` - map 格式的数据实例  
+`values` - 接收任意格式的入参  
+`getValue` - 执行 `state.get(name)` 得到 `map` 则 return `toJS` 后的结果 ,否则 直接 return  
+`setState` - return 一个 map 用法同 mapDatas.set  
+`setInState` - return 一个 map 用法同 mapDatas.setIn  
+`mergeState` - return 一个 map 用法同 mapDatas.merge  
+`mutation` - 包含自定义的同步方法集和异步方法集  
+异步方法以 `async` 开头，原方法首字母大写  
+以上述代码为例，`async toDoStr`  调用时为 `mutation.asyncToDoStr()`  
 
 - dvc/index
 
@@ -95,9 +95,9 @@ const Provider = mihux.Provider
 export { Provider, Context, useComponent }
 ```
 
-###### `Provider` - 数据共享容器
-###### `Context` - 数据存储上下文
-###### `useComponent` - 兼容类组件（不完全兼容）
+`Provider` - 数据共享容器  
+`Context` - 数据存储上下文  
+`useComponent` - 兼容类组件（不完全兼容）  
 
 - 在业务代码中使用
 
@@ -156,7 +156,7 @@ package: [https://developer.aliyun.com/mirror/npm/package/react-hooks-redux](htt
 
 - 用法借鉴：Lugiax：
 
-###### home: [http://lugia.tech/#/component/lugiax](http://lugia.tech/#/component/lugiax)
-###### github: [https://github.com/lugia-ysstech/lugia](https://github.com/lugia-ysstech/lugia)
+home: [http://lugia.tech/#/component/lugiax](http://lugia.tech/#/component/lugiax)  
+github: [https://github.com/lugia-ysstech/lugia](https://github.com/lugia-ysstech/lugia)
 
 熟悉上述两款react状态管理器，将有助于了解 Mihux
