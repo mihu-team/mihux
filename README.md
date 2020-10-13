@@ -162,4 +162,4 @@ github: [https://github.com/lugia-ysstech/lugia](https://github.com/lugia-ysstec
 熟悉上述两款react状态管理器，将有助于了解 Mihux
 
 ### Mihux 包
-package:[https://www.npmjs.com/package/mihux](https://www.npmjs.com/package/mihux)
+package：[https://www.npmjs.com/package/mihux](https://www.npmjs.com/package/mihux)
