@@ -160,3 +160,6 @@ home: [http://lugia.tech/#/component/lugiax](http://lugia.tech/#/component/lugia
 github: [https://github.com/lugia-ysstech/lugia](https://github.com/lugia-ysstech/lugia)
 
 熟悉上述两款react状态管理器，将有助于了解 Mihux
+
+### Mihux 包
+package:[https://www.npmjs.com/package/mihux](https://www.npmjs.com/package/mihux)
