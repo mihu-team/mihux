@@ -90,9 +90,8 @@ class Mihux {
           },
         }
       }
-      let reducer: MapOrObjType = doReducer()
-      this.store.dispatch(reducer)
-      return reducer
+      this.store.dispatch(doReducer())
+      return me.returnMap
     }
     let builtIn: MapOrObjType = {
       mutation: this.mutation[model],
