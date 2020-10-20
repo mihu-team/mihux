@@ -1,0 +1,18 @@
+{
+  "name": "mihux",
+  "version": "1.0.4",
+  "description": "react-hooks-redux extension",
+  "main": "index.js",
+  "keywords": [
+    "mihux",
+    "react-hooks-redux",
+    "redux"
+  ],
+  "author": "mihujun",
+  "license": "ISC",
+  "dependencies": {
+    "immutable": "^4.0.0-rc.12",
+    "react": "^16.13.1",
+    "react-hooks-redux": "^0.10.4"
+  }
+}
