@@ -90,7 +90,9 @@ class Mihux {
           },
         }
       }
-      this.store.dispatch(doReducer())
+      let reducer: MapOrObjType = doReducer()
+      this.store.dispatch(reducer)
+      return reducer
     }
     let builtIn: MapOrObjType = {
       mutation: this.mutation[model],
@@ -104,12 +106,12 @@ class Mihux {
         case 'async':
           let toUpperCaseKey: string = 'async' + key.replace(key[0], key[0].toUpperCase());
           (this.mutation[model][toUpperCaseKey] = async (values: any) => {
-            createReducer(toUpperCaseKey, await fns[key](this.returnMap, values, builtIn))
+            return createReducer(toUpperCaseKey, await fns[key](this.returnMap, values, builtIn))
           })
           break;
         default:
           (this.mutation[model][key] = (values: any) => {
-            createReducer(key, fns[key](this.returnMap, values, builtIn))
+            return createReducer(key, fns[key](this.returnMap, values, builtIn))
           })
       }
     })
