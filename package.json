@@ -8,7 +8,7 @@
   },
   "author": "mihujun",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "@babel/core": "^7.10.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-proposal-decorators": "^7.10.0",
@@ -22,7 +22,9 @@
     "@rollup/plugin-typescript": "^6.0.0",
     "@types/react": "^16.9.49",
     "acorn-jsx": "^5.3.1",
-    "rollup": "^2.10.9",
+    "immutable": "^4.0.0-rc.12",
+    "react-hooks-redux": "^0.10.4",
+    "rollup": "^2.32.1",
     "rollup-plugin-ascii": "^0.0.3",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -31,9 +33,7 @@
     "rollup-plugin-postcss": "^3.1.1",
     "rollup-plugin-terser": "^6.1.0",
     "ts-babel": "^6.1.7",
-    "typescript": "^4.0.3"
-  },
-  "devDependencies": {
+    "typescript": "^4.0.3",
     "colors": "^1.4.0",
     "inquirer": "^7.1.0"
   }

@@ -73,13 +73,13 @@ export const sync = {
 
 `values` - 接收任意格式的入参
 
-`getValue` - 执行 `state.get(name)` 得到 `map` 则 return `toJS` 后的结果 ,否则 直接 return
+`getValue` - 执行 `state.get(name)` 得到 `map` 则 return `toJS` 后的结果 ,否则 return 当前结果 
 
-`setState` - return 一个 map 用法同 mapDatas.set
+`setState` - 获取最新的 map 后 return mapDatas.set 的结果；入参比照 mapDatas.set
 
-`setInState` - return 一个 map 用法同 mapDatas.setIn
+`setInState` - 获取最新的 map 后 return mapDatas.setIn 的结果；入参比照 mapDatas.setIn
 
-`mergeState` - return 一个 map 用法同 mapDatas.merge
+`mergeState` - 获取最新的 map 后 return mapDatas.merge 的结果； 用法比照 mapDatas.merge
 
 `mutation` - 包含自定义的同步方法集和异步方法集
 
@@ -169,6 +169,38 @@ package: [https://developer.aliyun.com/mirror/npm/package/react-hooks-redux](htt
 github: [https://github.com/lugia-ysstech/lugiax](https://github.com/lugia-ysstech/lugiax) 
 
 熟悉上述两款react状态管理器，将有助于了解 Mihux 
+
+---
+
+### 版本说明
+
+##### V 1.1.2
+
+- 修复内置方法（setState，setInState, mergeState）
+
+##### V 1.1.1
+
+- 修复 readme 排版
+
+##### V 1.1.0
+
+- 固定 Mihux 内部依赖的版本
+
+- 优化 代码结果
+
+##### V 1.0.4
+
+- mutation 的返回值可在外部接收
+
+##### V 1.0.0
+
+- 第一个正式版本
+
+##### 其他版本
+
+- 测试版本,包含 bug（不推荐使用）
+
+- 推荐使用最新版
 
 ---
 

@@ -27,9 +27,6 @@ export default {
     typescript({ 
       jsx: 'react'
     }),
-    /* includePaths({
-      include: { "@mihux": "./mihux/index.tsx" },
-    }), */
     babel({ exclude: "**/node_modules/**", runtimeHelpers: true }),
     commonjs(),
     ascii(),

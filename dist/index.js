@@ -40,19 +40,21 @@ var Mihux = (function () {
         this.store = {};
         this.mutation = {};
         this.mapState = {};
-        this.set = function (key, value) {
+        this.getNewState = function () {
             var newState = Object.assign({}, _this.store.getState());
             var mapState = immutable_1.Map(tslib_1.__assign({}, newState));
+            return mapState;
+        };
+        this.set = function (key, value) {
+            var mapState = _this.getNewState();
             return mapState.set(key, value);
         };
         this.setIn = function (keys, value) {
-            var newState = Object.assign({}, _this.store.getState());
-            var mapState = immutable_1.Map(tslib_1.__assign({}, newState));
+            var mapState = _this.getNewState();
             return mapState.setIn(keys, value);
         };
         this.merge = function (values) {
-            var newState = Object.assign({}, _this.store.getState());
-            var mapState = immutable_1.Map(tslib_1.__assign({}, newState));
+            var mapState = _this.getNewState();
             return mapState.merge(tslib_1.__assign({}, values));
         };
         this.getValue = function (state, key) {

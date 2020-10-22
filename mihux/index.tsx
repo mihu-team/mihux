@@ -54,19 +54,21 @@ class Mihux {
   private store: MapOrObjType = {}
   private mutation: MapOrObjType = {}
   private mapState: MapOrObjType = {}
-  private set: (key: string, value: any) => MapOrObjType = (key, value) => {
+  private getNewState: () => MapOrObjType = () => {
     let newState: MapOrObjType = Object.assign({}, this.store.getState())
     let mapState: MapOrObjType = Map({ ...newState })
+    return mapState
+  }
+  private set: (key: string, value: any) => MapOrObjType = (key, value) => {
+    let mapState: MapOrObjType = this.getNewState()
     return mapState.set(key, value)
   }
   private setIn: (keys: string[], value: any) => MapOrObjType = (keys, value) => {
-    let newState: MapOrObjType = Object.assign({}, this.store.getState())
-    let mapState: MapOrObjType = Map({ ...newState })
+    let mapState: MapOrObjType = this.getNewState()
     return mapState.setIn(keys, value)
   }
   private merge: (newSatet: MapOrObjType) => MapOrObjType = (values) => {
-    let newState: MapOrObjType = Object.assign({}, this.store.getState())
-    let mapState: MapOrObjType = Map({ ...newState })
+    let mapState: MapOrObjType = this.getNewState()
     return mapState.merge({ ...values })
   }
   private getValue: (state: MapOrObjType, key: string) => any = (state, key) => {

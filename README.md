@@ -81,13 +81,13 @@ export const sync = {
 
 `values` - 接收任意格式的入参
 
-`getValue` - 执行 `state.get(name)` 得到 `map` 则 return `toJS` 后的结果 ,否则 直接 return 
+`getValue` - 执行 `state.get(name)` 得到 `map` 则 return `toJS` 后的结果 ,否则 return 当前结果 
 
-`setState` - return 一个 map 用法同 mapDatas.set 
+`setState` - 获取最新的 map 后 return mapDatas.set 的结果；入参比照 mapDatas.set
 
-`setInState` - return 一个 map 用法同 mapDatas.setIn 
+`setInState` - 获取最新的 map 后 return mapDatas.setIn 的结果；入参比照 mapDatas.setIn
 
-`mergeState` - return 一个 map 用法同 mapDatas.merge 
+`mergeState` - 获取最新的 map 后 return mapDatas.merge 的结果； 用法比照 mapDatas.merge
 
 `mutation` - 包含自定义的同步方法集和异步方法集 
 

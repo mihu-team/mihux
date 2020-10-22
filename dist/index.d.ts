@@ -12,6 +12,7 @@ declare class Mihux {
     private store;
     private mutation;
     private mapState;
+    private getNewState;
     private set;
     private setIn;
     private merge;
