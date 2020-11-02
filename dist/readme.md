@@ -170,43 +170,9 @@ github: [https://github.com/lugia-ysstech/lugiax](https://github.com/lugia-ysste
 
 熟悉上述两款react状态管理器，将有助于了解 Mihux 
 
----
-
-### 版本说明
-
-##### V 1.1.3
-
-- 优化 readme 文档
-
-##### V 1.1.2
-
-- 修复内置方法（setState，setInState, mergeState）
-
-##### V 1.1.1
-
-- 修复 readme 排版
-
-##### V 1.1.0
-
-- 固定 Mihux 内部依赖的版本
-
-- 优化 代码结果
-
-##### V 1.0.4
-
-- mutation 的返回值可在外部接收
-
-##### V 1.0.0
-
-- 第一个正式版本
-
-##### 其他版本
-
-- 测试版本,包含 bug（不推荐使用）
-
-- 推荐使用最新版
-
----
 
 ### Mihux 源码：
-Github：[https://github.com/mihu-team/mihux](https://github.com/mihu-team/mihux)
+Github：[https://github.com/mihu-team/mihux](https://github.com/mihu-team/mihux5)
+
+
+<!-- [![install size](https://packagephobia.com/badge?p=mihux)](https://packagephobia.com/result?p=mihux) -->
