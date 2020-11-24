@@ -92,7 +92,7 @@ class Mihux {
           },
         }
       }
-      this.store.dispatch(doReducer())
+      typeof this?.store?.dispatch === 'function' && this?.store?.dispatch(doReducer())
       return me.returnMap
     }
     let builtIn: MapOrObjType = {

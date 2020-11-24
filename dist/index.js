@@ -69,6 +69,7 @@ var Mihux = (function () {
         this.mapMutation = function (fns, model, flag) {
             var me = _this;
             var createReducer = function (key, mapNewState) {
+                var _a, _b;
                 var doReducer = function () {
                     return {
                         type: key,
@@ -79,7 +80,7 @@ var Mihux = (function () {
                         },
                     };
                 };
-                _this.store.dispatch(doReducer());
+                typeof ((_a = _this === null || _this === void 0 ? void 0 : _this.store) === null || _a === void 0 ? void 0 : _a.dispatch) === 'function' && ((_b = _this === null || _this === void 0 ? void 0 : _this.store) === null || _b === void 0 ? void 0 : _b.dispatch(doReducer()));
                 return me.returnMap;
             };
             var builtIn = {
