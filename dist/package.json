@@ -1,6 +1,6 @@
 {
   "name": "mihux",
-  "version": "1.12.1",
+  "version": "1.12.2",
   "description": "react-hooks-redux extension",
   "main": "index.js",
   "keywords": [
